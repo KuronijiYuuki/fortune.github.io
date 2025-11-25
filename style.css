@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Itim&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ==== Reset & Base ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", "Itim", sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffeef7, #f1eaff, #eef5ff);
+    background-attachment: fixed;
+    color: #5c3baf;
+    overflow-x: hidden;
+    padding-top: 80px;
+    /* สำหรับ navbar fix */
+    position: relative;
+}
+
+/* ===== Navbar Fix + Glassmorphism ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 14px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 8px 25px rgba(180, 120, 255, 0.15);
+    z-index: 1000;
+}
+
+.navbar .left i.ph-sparkle {
+    font-size: 28px;
+    color: #b86bfd;
+    animation: glow 2s infinite alternate;
+}
+
+#navbar-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #734ac7;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #b86bfd;
+    }
+
+    to {
+        text-shadow: 0 0 15px #ff33aa;
+    }
+}
+
+/* ===== Theme Toggle Button ===== */
+.btn-theme {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 6px 20px rgba(180, 120, 255, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-theme:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 25px rgba(180, 120, 255, 0.35);
+}
+
+.btn-theme i {
+    font-size: 20px;
+    color: #b86bfd;
+}
+
+/* ===== Section Title ===== */
+section {
+    text-align: center;
+    margin: 100px 0 50px;
+}
+
+section h1 {
+    font-size: 48px;
+    color: #ff33aa;
+    text-shadow: 0 0 15px #ff99dd;
+}
+
+section h2 {
+    font-size: 22px;
+    color: #ce51ff;
+    margin-top: 10px;
+}
+
+/* ===== Box Cards ===== */
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.box-list {
+    width: 360px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    font-size: 20px;
+    color: #5c3baf;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: 0.4s;
+    backdrop-filter: blur(15px);
+}
+
+.box-list:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(180, 120, 255, 0.2);
+}
+
+.box-list i.calendar {
+    font-size: 32px;
+    color: #a29bfe;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.box-list .text {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-list .text-main {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.box-list span {
+    font-size: 15px;
+    color: #9b59b6;
+    margin-top: 3px;
+}
+
+/* ===== Star Background ===== */
+/* ===== Star Background Layered ===== */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* ดาวใหญ่ / เล็ก */
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #b86bfd 70%);
+    opacity: 0.7;
+    animation: floatStar linear infinite, twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes floatStar {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) translateX(15px) rotate(15deg);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+}
+
+/* Shooting star */
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(white, transparent);
+    top: -100px;
+    left: 0;
+    opacity: 0.8;
+    transform: rotate(45deg);
+    animation: shooting 2s linear infinite;
+}
+
+@keyframes shooting {
+    0% {
+        transform: translateX(0) translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(1200px) translateY(600px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Overlay Gradient เพิ่มความ mystical */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(255, 200, 255, 0.1), transparent 70%),
+        radial-gradient(circle at bottom right, rgba(180, 120, 255, 0.1), transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* ===== Dark Theme ===== */
+body.dark-theme {
+    background: linear-gradient(135deg, #2D0C5E, #5E1A8B, #3A0471);
+    color: #fff;
+}
+
+body.dark-theme .navbar {
+    background: rgba(51, 4, 102, 0.85);
+    box-shadow: 0 6px 20px rgba(100, 50, 255, 0.25);
+}
+
+body.dark-theme #navbar-title {
+    color: #fff;
+}
+
+body.dark-theme .navbar .left i.ph-sparkle {
+    color: #ff99ff;
+}
+
+body.dark-theme section h1 {
+    color: #ff88dd;
+    text-shadow: 0 0 15px #ff33aa;
+}
+
+body.dark-theme section h2 {
+    color: #d07ef0;
+}
+
+body.dark-theme .box-list {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(100, 50, 255, 0.2);
+}
+
+body.dark-theme .box-list span {
+    color: #d69fff;
+}
+
+body.dark-theme .box-list i.calendar {
+    color: #fff;
+}

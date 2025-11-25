@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*หน้าใส่วันเกิด*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Itim', sans-serif;
+    background: linear-gradient(135deg, #ffeef7, #f1eaff, #eef5ff);
+    background-attachment: fixed;
+    color: #6b4ca7;
+    position: relative;
+    height: 100vh;
+}
+
+
+
+/* Back Button */
+.back-button{
+    position:fixed; top:90px; left:20px; padding:8px 12px;
+    background: rgba(255,255,255,0.6); border-radius:12px; text-decoration:none; color:#5c3baf; font-weight:600;
+    box-shadow:0 6px 20px rgba(180,120,255,0.2); z-index:1001; transition:0.3s;
+}
+.back-button:hover{ background: rgba(255,255,255,0.9); box-shadow:0 8px 25px rgba(180,120,255,0.35); color:#ff33aa; }
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 14px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 8px 25px rgba(180, 120, 255, 0.15);
+    z-index: 1000;
+}
+
+.navbar .left i.ph-sparkle {
+    font-size: 28px;
+    color: #b86bfd;
+    animation: glow 2s infinite alternate;
+}
+#navbar-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #734ac7;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #b86bfd; }
+    to { text-shadow: 0 0 15px #ff33aa; }
+}
+
+/* ===== Theme Toggle Button ===== */
+.btn-theme {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 6px 20px rgba(180,120,255,0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-theme:hover {
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 8px 25px rgba(180,120,255,0.35);
+}
+.btn-theme i {
+    font-size: 20px;
+    color: #b86bfd;
+}
+/* หน้า input */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.input-box {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    width: 350px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.input-box h2 {
+    font-family: 'Itim', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+
+}
+a{
+    text-decoration: none;
+}
+
+.date-input {
+    width: 90%;
+    padding: 12px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    color: rgb(153, 44, 172);
+    font-family: 'Athiti', sans-serif;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    font-weight: 700;
+
+
+}
+
+.date-input::placeholder {
+    color: #ddd;
+
+}
+
+.btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #5f0dd6, #ff007f);
+    color: white;
+    font-family: 'Itim', serif;
+    letter-spacing: 1px;
+}
+
+/* ดาว */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* ดาวใหญ่ / เล็ก */
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #b86bfd 70%);
+    opacity: 0.7;
+    animation: floatStar linear infinite, twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+@keyframes floatStar {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50% { transform: translateY(-20px) translateX(15px) rotate(15deg); }
+    100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+
+/* Shooting star */
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(white, transparent);
+    top: -100px;
+    left: 0;
+    opacity: 0.8;
+    transform: rotate(45deg);
+    animation: shooting 2s linear infinite;
+}
+
+@keyframes shooting {
+    0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateX(1200px) translateY(600px) rotate(45deg); opacity: 0; }
+}
+
+/* Overlay Gradient เพิ่มความ mystical */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(255,200,255,0.1), transparent 70%),
+                radial-gradient(circle at bottom right, rgba(180,120,255,0.1), transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+body.dark-theme{
+    background: linear-gradient(135deg,#2D0C5E,#5E1A8B,#3A0471); color:#fff;
+}
+body.dark-theme .navbar{background: rgba(51,4,102,0.85); box-shadow:0 0 35px rgba(100,50,255,0.25);}
+body.dark-theme #navbar-title{color:#fff;}
+body.dark-theme .navbar .left i.ph-sparkle{color:#ff99ff;}
+body.dark-theme .back-button{background: rgba(51,4,102,0.85); color:#fff; box-shadow:0 0 25px rgba(100,50,255,0.2);}
+body.dark-theme .menu-button{background: rgba(255,255,255,0.05); box-shadow:0 0 30px rgba(100,50,255,0.25); color:#fff;}
+body.dark-theme .menu-button .styled-icon{color:#d69fff;}
+body.dark-theme .menu-button .button-details span{color:#d69fff;}
+body.dark-theme .final-button{background:#d69fff; color:#fff;}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ปฏิทินพื้นหลัง */
+.calendar-bg {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgb(187, 8, 187);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-bg::before {
+    content: '';
+    display: block;
+    /* ต้องมีเพื่อให้ element แสดง */
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    /* วางตำแหน่งได้ */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='3' y='4' width='18' height='16' rx='3' stroke='currentColor' stroke-width='2' fill='none'/><line x1='3' y1='8' x2='21' y2='8' stroke='currentColor' stroke-width='2'/><line x1='7' y1='0' x2='7' y2='4' stroke='currentColor' stroke-width='2'/><line x1='17' y1='0' x2='17' y2='4' stroke='currentColor' stroke-width='2'/></svg>") no-repeat center center;
+    background-size: contain;
+    color: white;
+    /* สี default ของ SVG (ธีมสว่าง) */
+}
+
+/*ธีมมืด*/
+
+body.dark-theme .navbar {
+    background: rgba(51, 4, 102, 0.874);
+}
+
+body.dark-theme #navbar-title {
+    color: #fff;
+}
+
+body.dark-theme .navbar .left i.ph-sparkle {
+    color: #fff;
+}
+
+body.dark-theme .navbar .right .btn-theme i.ph-moon {
+    color: #b86bfd;
+}
+
+/* ==== ธีมมืด ==== */
+body.dark-theme {
+    background: linear-gradient(135deg, #2D0C5E, #5E1A8B);
+    color: #fff;
+}
+
+/* Navbar */
+body.dark-theme .navbar {
+    background: rgba(51, 4, 102, 0.874);
+}
+
+body.dark-theme #navbar-title {
+    color: #fff;
+}
+
+body.dark-theme .navbar .left i.ph-sparkle {
+    color: #fff;
+}
+
+body.dark-theme .navbar .right .btn-theme i.ph-moon {
+    color: #b86bfd;
+}
+
+/* ปฏิทิน */
+body.dark-theme .calendar-bg {
+    background: #f1eaff;
+}
+
+body.dark-theme .calendar-bg::before {
+    color: #fff;
+    /* เปลี่ยนสี SVG */
+}
+
+body.dark-theme .input-box {
+    background: rgba(51, 4, 102, 0.8);
+    /* สีเข้มสำหรับกล่อง input */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    /* เพิ่มเงาให้ชัดในธีมมืด */
+    border-radius: 16px;
+}
+
+body.dark-theme .input-box h2 {
+    color: #fff;
+    /* เปลี่ยนสีหัวข้อ */
+    box-shadow: none !important;
+}
+
+body.dark-theme .date-input {
+    background: rgba(255, 255, 255, 0.15);
+    /* หรือสีเข้มตามธีม */
+    color: #fff;
+    /* ข้อความสีขาว */
+    border: 2px solid #fff;
+    /* กรอบสีขาว */
+    box-shadow: none !important;
+}
+
+body.dark-theme .date-input::placeholder {
+    color: #ccc;
+    /* placeholder สีอ่อน */
+}
+
+body.dark-theme .btn {
+    background: linear-gradient(90deg, #5f0dd6, #ff007f);
+    /* ปุ่มยังคงไล่สีได้ */
+    color: #fff;
+}

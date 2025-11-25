@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลการทำนาย - ดูดวงออนไลน์</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Itim&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@latest/src/css/icons.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left">
+            <i class="ph-sparkle"></i>
+            <a href="index.html"><span id="navbar-title">ดูดวงออนไลน์</span></a>
+        </div>
+        <div class="right" id="theme-toggle">
+            <button class="btn-theme">
+                <i class="ph-moon" id="theme-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="stars"></div>
+
+    <div class="container">
+        <a href="index3.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> กลับ
+        </a>
+        <div class="header-icon">
+            <span class="icon-star">✨</span>
+        </div>
+
+        <h2 class="main-title">ผลการทำนายของคุณ</h2>
+
+        <div class="user-info">
+            <p>วันเกิด: <span id="user-birthdate">-</span></p>
+            <p>ประเภทการทำนาย: <span id="user-fortune-type" class="fortune-type">-</span></p>
+            <p>หัวข้อที่เลือก: <span id="user-topics">-</span></p>
+        </div>
+
+        <div class="result-container" id="result-container">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>🔮 กำลังวิเคราะห์ดวงชะตาของคุณ...</p>
+                <p>กรุณารอสักครู่ ⏳</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="btn">ทำนายอีกครั้ง</a>
+    </div>
+
+    <script src="theme.js"></script>
+    <script src="script4.js"></script>
+</body>
+
+</html>

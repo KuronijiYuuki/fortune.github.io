@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกหัวข้อ - ดูดวงออนไลน์</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@latest/src/css/icons.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left">
+            <i class="ph-sparkle"></i>
+            <a href="index.html"><span id="navbar-title">ดูดวงออนไลน์</span></a>
+        </div>
+        <div class="right" id="theme-toggle">
+            <button class="btn-theme">
+                <i class="ph-moon" id="theme-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="stars"></div>
+
+    <div class="container">
+        <a href="index2.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> กลับ
+        </a>
+
+        <div class="main-text">
+            <h2>เลือกหัวข้อที่ต้องการดูดวง</h2>
+            <p>คุณสามารถเลือกได้มากกว่า 1 หัวข้อ</p>
+        </div>
+
+        <div class="topic-buttons">
+            <button class="menu-button unselected" data-topic="fortune">
+                <i class="fas fa-check check-icon-left"></i>
+                <div class="styled-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="button-details">
+                    <strong>ดวงชะตา</strong>
+                    <span>ดูดวงโชคลาภและชะตาชีวิต</span>
+                </div>
+            </button>
+
+            <button class="menu-button unselected" data-topic="love">
+                <i class="fas fa-check check-icon-left"></i>
+                <div class="styled-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="button-details">
+                    <strong>ความรัก</strong>
+                    <span>ดูดวงความรักและความสัมพันธ์</span>
+                </div>
+            </button>
+
+            <button class="menu-button unselected" data-topic="work">
+                <i class="fas fa-check check-icon-left"></i>
+                <div class="styled-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="button-details">
+                    <strong>การงาน</strong>
+                    <span>ดูดวงการงานและการเงิน</span>
+                </div>
+            </button>
+        </div>
+
+        <button class="final-button" id="final-button">
+            ดูดวงเลย
+        </button>
+    </div>
+
+    <script src="theme.js"></script>
+    <script src="script3.js"></script>
+</body>
+
+</html>

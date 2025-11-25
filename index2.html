@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กรอกวันเกิด - ดูดวงออนไลน์</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@latest/src/css/icons.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left">
+            <i class="ph-sparkle"></i>
+            <a href="index.html"><span id="navbar-title">ดูดวงออนไลน์</span></a>
+        </div>
+        <div class="right" id="theme-toggle">
+            <button class="btn-theme">
+                <i class="ph-moon" id="theme-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="stars"></div>
+
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> กลับ
+    </a>
+
+    <div class="container">
+        <div class="input-box">
+            <h2>กรอกวันเกิดของคุณ</h2>
+            <input type="date" class="date-input" id="birthdate-input">
+            <button class="btn" id="next-btn">ต่อไป</button>
+        </div>
+    </div>
+
+    <script src="theme.js"></script>
+    <script src="script2.js"></script>
+</body>
+
+</html>

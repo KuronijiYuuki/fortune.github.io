@@ -1,0 +1,389 @@
+/*
+** --------------------------------
+** 1. Variable & Global Reset
+** --------------------------------
+*/
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Itim&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette based on previous theme */
+    --primary-text: #5c3baf;       /* Dark Violet Text */
+    --primary-main: #b86bfd;       /* Main Purple (for icons, accents) */
+    --primary-dark: #734ac7;       /* Darker Purple */
+    --accent-pink: #ff33aa;        /* Bright Pink (for titles) */
+    --accent-pink-light: #ff99dd;  /* Light Pink for text shadow */
+    --background-light: #f7f2ff;   /* Very light background for info box */
+    --star-color: #fff;            /* Star color */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", "Itim", sans-serif;
+    min-height: 100vh;
+    /* Background Gradient from index.html CSS */
+    background: linear-gradient(135deg, #ffeef7, #f1eaff, #eef5ff);
+    background-attachment: fixed;
+    color: var(--primary-text);
+    overflow-x: hidden;
+    padding-top: 80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+/* ดาว */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* ดาวใหญ่ / เล็ก */
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #b86bfd 70%);
+    opacity: 0.7;
+    animation: floatStar linear infinite, twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+@keyframes floatStar {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50% { transform: translateY(-20px) translateX(15px) rotate(15deg); }
+    100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+
+/* Shooting star */
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(white, transparent);
+    top: -100px;
+    left: 0;
+    opacity: 0.8;
+    transform: rotate(45deg);
+    animation: shooting 2s linear infinite;
+}
+
+@keyframes shooting {
+    0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateX(1200px) translateY(600px) rotate(45deg); opacity: 0; }
+}
+
+
+/*
+** --------------------------------
+** 2. Navbar (Fixed & Glassmorphism)
+** --------------------------------
+*/
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 14px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 8px 25px rgba(180, 120, 255, 0.15);
+    z-index: 1000;
+}
+
+.navbar .left i.ph-sparkle {
+    font-size: 28px;
+    color: var(--primary-main);
+    animation: glow 2s infinite alternate;
+}
+#navbar-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    /* Ensure the Charm font is used for the title if available */
+    
+}
+
+/* Glow Keyframes from index.html CSS */
+@keyframes glow {
+    from { text-shadow: 0 0 5px var(--primary-main); }
+    to { text-shadow: 0 0 15px var(--accent-pink); }
+}
+
+/* Theme Toggle Button Styles */
+.btn-theme {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 6px 20px rgba(180,120,255,0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-theme:hover {
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 8px 25px rgba(180,120,255,0.35);
+}
+.btn-theme i {
+    font-size: 20px;
+    color: var(--primary-main);
+}
+
+
+/*
+** --------------------------------
+** 3. Main Container & Header
+** --------------------------------
+*/
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    flex-grow: 1;
+
+    /* Glassmorphism Card Style */
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(180, 120, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 10;
+}
+/* Back Button */
+.back-button{
+    position:fixed; top:90px; left:20px; padding:8px 12px;
+    background: rgba(255,255,255,0.6); border-radius:12px; text-decoration:none; color:#5c3baf; font-weight:600;
+    box-shadow:0 6px 20px rgba(180,120,255,0.2); z-index:1001; transition:0.3s;
+}
+.back-button:hover{ background: rgba(255,255,255,0.9); box-shadow:0 8px 25px rgba(180,120,255,0.35); color:#ff33aa; }
+
+.header-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-size: 36px;
+    /* Color from index.html h1 */
+    color: var(--accent-pink);
+    text-shadow: 0 0 15px var(--accent-pink-light);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+
+/*
+** --------------------------------
+** 4. User Info Section (Result Details)
+** --------------------------------
+*/
+
+.user-info {
+    text-align: left;
+    background-color: var(--background-light);
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 1px solid var(--primary-main);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.user-info p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.user-info span {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.fortune-type {
+    background-color: var(--primary-main);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/*
+** --------------------------------
+** 5. Result Container & Loading State
+** --------------------------------
+*/
+
+.result-container {
+    min-height: 250px;
+    text-align: left;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-top: 2px dashed rgba(180, 120, 255, 0.3);
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.spinner {
+    /* Spinner using primary colors */
+    border: 5px solid rgba(184, 107, 253, 0.2);
+    border-top: 5px solid var(--accent-pink);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* When the result is loaded (Example structure for result items) */
+.result-item {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.result-item h3 {
+    color: var(--accent-pink);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--background-light);
+    padding-bottom: 5px;
+}
+.result-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/*
+** --------------------------------
+** 6. Final Button
+** --------------------------------
+*/
+
+.btn {
+    display: inline-block;
+    padding: 14px 40px;
+    /* Gradient Button - Adjusting color to match theme */
+    background: linear-gradient(90deg, var(--accent-pink), var(--primary-main));
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 51, 170, 0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, var(--primary-main), var(--accent-pink));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 51, 170, 0.5);
+}
+
+/*
+** --------------------------------
+** 7. Dark Theme Styles
+** --------------------------------
+*/
+
+body.dark-theme {
+    /* Background Gradient from index.html CSS */
+    background: linear-gradient(135deg, #2D0C5E, #5E1A8B, #3A0471);
+    color: #fff;
+}
+
+body.dark-theme .navbar {
+    background: rgba(51, 4, 102, 0.85);
+    box-shadow: 0 6px 20px rgba(100,50,255,0.25);
+}
+body.dark-theme #navbar-title { color: #fff; }
+body.dark-theme .navbar .left i.ph-sparkle { color: #ff99ff; }
+body.dark-theme .btn-theme i { color: #ff99ff; }
+body.dark-theme .main-title { 
+    color: #ff88dd; 
+    text-shadow: 0 0 15px var(--accent-pink); 
+}
+
+body.dark-theme .container {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(100, 50, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .back-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+body.dark-theme .back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+body.dark-theme .back-button i { color: #ff99ff; }
+
+body.dark-theme .user-info {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--primary-main);
+    color: #fff;
+    box-shadow: none;
+}
+body.dark-theme .user-info span { color: #d69fff; }
+body.dark-theme .fortune-type { background-color: #ff33aa; }
+
+body.dark-theme .loading p { color: #d69fff; }
+body.dark-theme .spinner {
+    border: 5px solid rgba(255, 51, 170, 0.2);
+    border-top: 5px solid #ff99ff;
+}

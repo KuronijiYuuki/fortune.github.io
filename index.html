@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ดูดวงออนไลน์</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@latest/src/css/icons.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left">
+            <i class="ph-sparkle"></i>
+            <span id="navbar-title">ดูดวงออนไลน์</span>
+        </div>
+        <div class="right" id="theme-toggle">
+            <button class="btn-theme">
+                <i class="ph-moon" id="theme-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <section>
+        <h1>เลือกประเภทการดูดวง</h1>
+        <h2>คุณต้องการดูดวงแบบไหน ?</h2>
+    </section>
+
+    <div class="box-container">
+        <div class="box-list" onclick="setFortuneType('daily')">
+            <i class="calendar ph-calendar"></i>
+            <div class="text">
+                <div class="text-main">ดูดวงรายวัน</div>
+                <span>ดูดวงประจำวันนี้</span>
+            </div>
+        </div>
+
+        <div class="box-list" onclick="setFortuneType('weekly')">
+            <i class="calendar ph-calendar-blank"></i>
+            <div class="text">
+                <div class="text-main">ดูดวงรายสัปดาห์</div>
+                <span>ดูดวงประจำสัปดาห์นี้</span>
+            </div>
+        </div>
+
+        <div class="box-list" onclick="setFortuneType('monthly')">
+            <i class="calendar ph-calendar-check"></i>
+            <div class="text">
+                <div class="text-main">ดูดวงรายเดือน</div>
+                <span>ดูดวงประจำเดือนนี้</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="stars"></div>
+
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
